@@ -56,6 +56,7 @@ LANGUAGES = (
     ('en', _('English')),
     ('fr', _('French')),
     ('de', _('German')),
+    ('nl', _('Dutch')),
 )
 
 # If you set this to False, Django will not use timezone-aware datetimes.
