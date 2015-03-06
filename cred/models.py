@@ -76,6 +76,8 @@ class Cred(models.Model):
     url = models.URLField(blank=True, null=True, db_index=True)
     username = models.CharField(max_length=250, blank=True, null=True, db_index=True)
     password = models.CharField(max_length=250, blank=True, null=True)
+    location = models.CharField(max_length=250, blank=True, null=True)
+    label = models.CharField(max_length=250, blank=True, null=True)
     descriptionmarkdown = models.BooleanField(default=False, verbose_name=_('Markdown Description'))
     description = models.TextField(blank=True, null=True)
     group = models.ForeignKey(Group)

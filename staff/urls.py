@@ -16,9 +16,12 @@ urlpatterns = patterns('staff.views',
 
     # Importing
     url(r'^import/keepass/$', 'upload_keepass'),
+    url(r'^import/1password/$', 'upload_1password'),
     url(r'^import/process/$', 'import_overview'),
     url(r'^import/process/(?P<import_id>\d+)/$', 'import_process'),
+    url(r'^import/process/all/$', "import_process_all"),
     url(r'^import/process/(?P<import_id>\d+)/ignore/$', 'import_ignore'),
+
 
     # Undeletion
     url(r'^credundelete/(?P<cred_id>\d+)/$', 'credundelete'),

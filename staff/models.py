@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User, Group
 from django.utils.translation import ugettext_lazy as _
 from django import forms
-from importloaders import keepass
+from importloaders import keepass, onepassword
 from keepassdb.exc import AuthenticationError, InvalidDatabase
 from cred.models import CredAudit
 
@@ -89,5 +89,32 @@ class KeepassImportForm(forms.Form):
             self._errors['file'] = self.error_class([msg])
             del cleaned_data['file']
             del cleaned_data['password']
+
+        return cleaned_data
+
+class OnePasswordImportForm(forms.Form):
+    file = forms.FileField()
+    group = forms.ModelChoiceField(
+        queryset=Group.objects.all(),
+        widget=forms.Select(attrs={'class':'rattic-group-selector'}),
+    )
+
+    def __init__(self, requser, *args, **kwargs):
+        super(OnePasswordImportForm, self).__init__(*args, **kwargs)
+        self.fields['group'].queryset = Group.objects.filter(user=requser)
+
+    def clean(self):
+        cleaned_data = super(OnePasswordImportForm, self).clean()
+
+        try:
+            db = onepassword(cleaned_data['file'])
+            cleaned_data['db'] = db
+        except AuthenticationError:
+            msg = _('Could not read 1password file')
+            del cleaned_data['file']
+        except InvalidDatabase:
+            msg = _('That file does not appear to be a valid 1Password file.')
+            self._errors['file'] = self.error_class([msg])
+            del cleaned_data['file']
 
         return cleaned_data

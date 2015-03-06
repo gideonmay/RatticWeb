@@ -1,5 +1,6 @@
 from keepassdb import Database
 from django.utils.encoding import smart_text
+from onepassworddb import OnePasswordDatabase
 
 
 def keepass(filep, password):
@@ -33,3 +34,14 @@ def _walkkeepass(groups, entries, groupstack, root):
                 })
         _walkkeepass(groups, entries, groupstack, n)
         groupstack.pop()
+
+def onepassword(filep):
+    tags = []
+    entries = []
+
+    db = OnePasswordDatabase(filep)
+    tags = db.tags
+    entries = db.entries
+
+    return {'tags' : tags, 'entries' : entries}
+

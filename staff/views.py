@@ -17,7 +17,7 @@ from django.utils.timezone import utc
 from cred.icon import get_icon_list
 from cred.models import CredAudit, Cred, Tag
 from cred.forms import CredForm
-from models import UserForm, GroupForm, KeepassImportForm, AuditFilterForm
+from models import UserForm, GroupForm, KeepassImportForm, AuditFilterForm, OnePasswordImportForm
 from decorators import rattic_staff_required
 
 
@@ -219,6 +219,25 @@ def upload_keepass(request):
         form = KeepassImportForm(request.user)
     return render(request, 'staff_keepassimport.html', {'form': form})
 
+@rattic_staff_required
+def upload_1password(request):
+    # If data was submitted
+    if request.method == 'POST':
+        form = OnePasswordImportForm(request.user, request.POST, request.FILES)
+        # And it is valid
+        if form.is_valid():
+            # Store the data in the session
+            data = {
+                'group': form.cleaned_data['group'].id,
+                'entries': form.cleaned_data['db']['entries'],
+            }
+            request.session['imported_data'] = data
+            # Start the user processing entries
+            return HttpResponseRedirect(reverse('staff.views.import_overview'))
+    else:
+        form = OnePasswordImportForm(request.user)
+    return render(request, 'staff_keepassimport.html', {'form': form})
+
 
 @rattic_staff_required
 def import_overview(request):
@@ -252,6 +271,72 @@ def import_ignore(request, import_id):
         request.session.save()
     except IndexError:
         raise Http404
+
+    return HttpResponseRedirect(reverse('staff.views.import_overview'))
+
+@rattic_staff_required
+def import_process_all(request):
+    # If there was no session data, return 404
+    if 'imported_data' not in request.session.keys():
+        raise Http404
+
+    # Get the group
+    groupid = request.session['imported_data']['group']
+    try:
+        group = Group.objects.get(pk=groupid)
+    except Group.DoesNotExist:
+        del request.session['imported_data']
+        raise Http404
+
+    entries = list(request.session['imported_data']['entries'])
+    for entry in entries:
+        # Build the form
+
+        # Init the cred, and create the form
+        processed = dict(entry)
+
+        # Create all the tags
+        tlist = []
+        for t in processed['tags']:
+            (tag, create) = Tag.objects.get_or_create(name=t)
+            tlist.append(tag.pk)
+        processed['tags'] = tlist
+
+        # Setup the group
+        processed['group'] = groupid
+
+        # If the icon is empty set it
+        if 'iconname' not in processed.keys():
+            processed['iconname'] = 'Key.png'
+
+        # Remove the attachment
+        del processed['filename']
+        del processed['filecontent']
+
+        # Create the form
+        form = CredForm(request.user, processed, {})
+
+        # print "form: ", form
+        # Do we have enough data to save?
+        if form.is_valid():
+
+            # Save the credential
+            form.save()
+
+            # Write the audit log
+            CredAudit(
+                audittype=CredAudit.CREDADD,
+                cred=form.instance,
+                user=request.user,
+            ).save()
+
+            # Remove the entry we're importing
+
+            # print "removing form"
+            request.session['imported_data']['entries'].remove(entry)
+            request.session.save()
+        else:
+            pass
 
     return HttpResponseRedirect(reverse('staff.views.import_overview'))
 

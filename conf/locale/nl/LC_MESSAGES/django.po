@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-25 15:08+0100\n"
+"POT-Creation-Date: 2015-02-25 15:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,13 +115,13 @@ msgstr "Aanmaken"
 
 #: account/templates/account_profile.html:7
 msgid "Your Account"
-msgstr ""
+msgstr "Jouw account"
 
 #: account/templates/account_profile.html:10
 #: cred/templates/cred_detail.html:44 ratticweb/templates/sidebar.html:28
 #: staff/templates/staff_home.html:23
 msgid "Username"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: account/templates/account_profile.html:11
 #: staff/templates/staff_userdetail.html:32
@@ -131,7 +131,7 @@ msgstr ""
 #: account/templates/account_profile.html:15
 #: account/templates/account_profile.html:21
 msgid "Two Factor Authentication"
-msgstr ""
+msgstr "Tweestapsauthenticatie"
 
 #: account/templates/account_profile.html:15
 msgid "Enabled"
@@ -307,7 +307,7 @@ msgstr ""
 
 #: account/templates/account_tfa_setup.html:5
 msgid "Enable Two-Factor Authentication"
-msgstr ""
+msgstr "Tweestapsauthenticatie aanzetten"
 
 #: account/templates/account_tfa_setup.html:7
 msgid ""
@@ -363,11 +363,11 @@ msgstr ""
 
 #: account/templates/account_viewapikey.html:21
 msgid "Back to Profile"
-msgstr ""
+msgstr "Terug naar profiel"
 
 #: account/templates/password_reset.html:5
 msgid "Reset Password"
-msgstr ""
+msgstr "Wachtwoord resetten"
 
 #: account/templates/password_reset.html:8
 msgid ""
@@ -376,15 +376,15 @@ msgstr ""
 
 #: account/templates/password_reset.html:15
 msgid "E-mail address"
-msgstr ""
+msgstr "Email adres"
 
 #: account/templates/password_reset.html:15
 msgid "Reset password"
-msgstr ""
+msgstr "Reset wachtwoord"
 
 #: account/templates/password_reset_complete.html:5
 msgid "Password reset complete"
-msgstr ""
+msgstr "Wachtwoord reset is gedaan"
 
 #: account/templates/password_reset_complete.html:8
 msgid "Your password has been set. You may go ahead and log in now."
@@ -396,19 +396,19 @@ msgstr ""
 
 #: account/templates/password_reset_confirm.html:17
 msgid "New password"
-msgstr ""
+msgstr "Nieuw wachtwoord"
 
 #: account/templates/password_reset_confirm.html:22
 msgid "Confirm password"
-msgstr ""
+msgstr "Wachtwoord bevestigen"
 
 #: account/templates/password_reset_confirm.html:27
 msgid "Change my password"
-msgstr ""
+msgstr "Verander mijn wachtwoord"
 
 #: account/templates/password_reset_confirm.html:32
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "Wachtwoord reset mislukt"
 
 #: account/templates/password_reset_confirm.html:33
 msgid ""
@@ -418,7 +418,7 @@ msgstr ""
 
 #: account/templates/password_reset_done.html:5
 msgid "Password reset successful"
-msgstr ""
+msgstr "Wachtwoord reset succesvol"
 
 #: account/templates/password_reset_done.html:8
 msgid ""
@@ -649,7 +649,7 @@ msgstr ""
 
 #: cred/templates/cred_detail.html:64
 msgid "Download"
-msgstr ""
+msgstr "Binnenhalen"
 
 #: cred/templates/cred_detail.html:67 cred/templates/cred_list.html:67
 #: cred/templates/cred_list.html.py:69
@@ -690,7 +690,7 @@ msgstr ""
 
 #: cred/templates/cred_list.html:28 cred/templates/cred_taglist.html:8
 msgid "Add New"
-msgstr ""
+msgstr "Toevoegen"
 
 #: cred/templates/cred_list.html:40
 msgid "Apply a Tag"
@@ -698,13 +698,13 @@ msgstr ""
 
 #: cred/templates/cred_list.html:43
 msgid "Download Keepass"
-msgstr ""
+msgstr "Keepass binnenhalen"
 
 #: cred/templates/cred_list.html:53 cred/templates/cred_list.html.py:55
 #: staff/templates/staff_changeadvice.html:19
 #: staff/templates/staff_import_overview.html:11
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: cred/templates/cred_list.html:60 cred/templates/cred_list.html.py:62
 #: cred/templates/credaudit_list.html:9 staff/templates/staff_audit.html:28
@@ -712,17 +712,17 @@ msgstr ""
 #: staff/templates/staff_import_overview.html:12
 #: staff/templates/staff_userdetail.html:14
 msgid "User"
-msgstr ""
+msgstr "Gebruiker"
 
 #: cred/templates/cred_list.html:92 cred/templates/cred_list.html.py:94
 #: staff/templates/staff_audit.html:53 staff/templates/staff_audit.html:55
 msgid "Prev"
-msgstr ""
+msgstr "Vorige"
 
 #: cred/templates/cred_list.html:104 cred/templates/cred_list.html.py:106
 #: staff/templates/staff_audit.html:65 staff/templates/staff_audit.html:67
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 #: cred/templates/cred_list.html:114
 msgid "Matched Tags"
@@ -730,7 +730,7 @@ msgstr ""
 
 #: cred/templates/cred_part_export.html:10
 msgid "Export to Keepass"
-msgstr ""
+msgstr "Exporteren naar Keepass"
 
 #: cred/templates/cred_part_export.html:13
 msgid ""
@@ -740,23 +740,23 @@ msgstr ""
 
 #: cred/templates/cred_part_export.html:27
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 #: cred/templates/cred_part_logomodal.html:14
 msgid "Icons"
-msgstr ""
+msgstr "Ikonen"
 
 #: cred/templates/cred_part_logomodal.html:24
 msgid "Close"
-msgstr ""
+msgstr "Sluit"
 
 #: cred/templates/cred_part_newtagmodal.html:5
 msgid "Add New Tag"
-msgstr ""
+msgstr "Nieuwe tag toevoegen"
 
 #: cred/templates/cred_part_newtagmodal.html:9
 msgid "Tag Name:"
-msgstr ""
+msgstr "Tag Naam:"
 
 #: cred/templates/cred_part_newtagmodal.html:12
 msgid "Create Another"
@@ -764,7 +764,7 @@ msgstr ""
 
 #: cred/templates/cred_part_passgenmodal.html:5
 msgid "Password Generator"
-msgstr ""
+msgstr "Wachtwoord generator"
 
 #: cred/templates/cred_part_passgenmodal.html:9
 msgid "Must Have"
@@ -980,7 +980,7 @@ msgstr ""
 
 #: ratticweb/templates/sidebar.html:8
 msgid "Profile"
-msgstr ""
+msgstr "Profiel"
 
 #: ratticweb/templates/sidebar.html:15
 msgid "Add Favourite Tags on the "
@@ -1083,19 +1083,19 @@ msgstr ""
 
 #: staff/templates/staff_home.html:12
 msgid "Add User"
-msgstr ""
+msgstr "Gebruiker toevoegen"
 
 #: staff/templates/staff_home.html:13
 msgid "Add Group"
-msgstr ""
+msgstr "Groep toevoegen"
 
 #: staff/templates/staff_home.html:15
 msgid "Import Keepass"
-msgstr ""
+msgstr "Importeer Keepass"
 
 #: staff/templates/staff_home.html:16
 msgid "View Trash"
-msgstr ""
+msgstr "Bekijk prullenmand"
 
 #: staff/templates/staff_home.html:17
 msgid "Audit One Week"
@@ -1115,19 +1115,19 @@ msgstr ""
 
 #: staff/templates/staff_import_overview.html:19
 msgid "Import"
-msgstr ""
+msgstr "Importeer"
 
 #: staff/templates/staff_import_overview.html:20
 msgid "Skip"
-msgstr ""
+msgstr "Sla over"
 
 #: staff/templates/staff_import_process.html:10
 msgid "Password Import"
-msgstr ""
+msgstr "Importeer wachtwoord"
 
 #: staff/templates/staff_keepassimport.html:16
 msgid "Keepass Import"
-msgstr ""
+msgstr "Importeer Keepass"
 
 #: staff/templates/staff_keepassimport.html:17
 msgid ""
@@ -1154,8 +1154,8 @@ msgstr ""
 
 #: staff/templates/staff_useredit.html:6
 msgid "Create User"
-msgstr ""
+msgstr "Maak gebruiker aan"
 
 #: staff/templates/staff_useredit.html:6
 msgid "Edit User"
-msgstr ""
+msgstr "Wijzig gerbruiker"

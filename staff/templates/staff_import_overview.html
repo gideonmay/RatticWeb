@@ -4,6 +4,7 @@
 
 {% block content %}
 <h1>{% trans "Import Overview" %}</h1>
+<a class="btn btn-mini btn-success" href="{% url "staff.views.import_process_all"  %}">{% trans "Import All" %}</a>
 <table class="table table-striped table-bordered table-condensed">
 <thead>
 <tr>
