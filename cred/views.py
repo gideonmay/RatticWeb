@@ -110,6 +110,10 @@ def list(request, cfilter='special', value='all', sortdir='ascending', sort='tit
         viewdict['credtitle'] = _('Passwords in group %(groupname)s') % {'groupname': search_object.name, }
         viewdict['buttons']['export'] = True
 
+    elif cfilter == 'location':
+        viewdict['credtitle'] = _('Passwords in location %(locationname)s') % {'locationname': search_object.name, }
+        viewdict['buttons']['export'] = True
+
     elif cfilter == 'search':
         viewdict['credtitle'] = _('Passwords for search "%(searchstring)s"') % {'searchstring': search_object, }
         viewdict['buttons']['export'] = True
